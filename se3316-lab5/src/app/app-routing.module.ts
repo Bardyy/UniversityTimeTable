@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BackendComponent } from './backend/backend.component';
 import { FrontendComponent } from './frontend/frontend.component';
