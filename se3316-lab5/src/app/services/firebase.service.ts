@@ -32,4 +32,10 @@ export class FirebaseService {
         alert(err.message)
       })
   }
+
+  //Logging out method
+  logOut() {
+    this.firebaseAuth.signOut()
+    localStorage.removeItem('user');
+  }
 }
