@@ -25,4 +25,15 @@ export class LoginpageComponent implements OnInit {
       this.isSignedIn = true
     this.router.navigateByUrl('')
   }
+
+  async onSignin(email: string, password: string) {
+    await this.firebaseService.signIn(email, password)
+    if (this.firebaseService.isLoggedIn) {
+      this.isSignedIn = true
+      this.router.navigateByUrl('/members')
+    }
+
+  }
+
+
 }
