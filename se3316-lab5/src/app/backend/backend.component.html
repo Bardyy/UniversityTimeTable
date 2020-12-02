@@ -1,1 +1,37 @@
-<p>backend works!</p>
+<div class="availableSchedules"> All available schedules:
+
+
+    <div *ngFor="let schedule of get_schedules">
+        {{schedule.scheduleName}}
+    </div>
+
+</div>
+<br>
+<div class="CreateSchedule">
+    <p>Create A New Schedule:</p>
+    <form (submit)="createSchedule()">
+        <input type="text" placeholder="Enter new schedule name" [(ngModel)]="scheduleInput"
+            [ngModelOptions]="{standalone: true}">
+        <button type="submit">Create new schedule</button>
+    </form>
+</div>
+
+<br>
+
+<div class="UpdateSchedules">
+    <p>Add a course and subject to an existing schedule</p>
+    <input type="text" placeholder="schedule name" [(ngModel)]="scheduleName">
+    <br>
+    <input type="text" placeholder="Add course" [(ngModel)]="scheduleList">
+    <br>
+    <input type="text" placeholder="Add subject">
+    <br>
+    <button (click)="updateSchedule()">Update Schedule</button>
+</div>
+
+<br>
+
+<div class="DeleteSchedules">
+    <p>Delete All Schedules:</p>
+    <button (click)="deleteSchedules()">Delete All Schedules</button>
+</div>

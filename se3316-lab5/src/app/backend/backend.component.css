@@ -1,0 +1,27 @@
+.availableSchedules{
+    background-color: navajowhite;
+    border: thin solid black;
+    width: 30%;
+}
+
+.CreateSchedule{
+
+    background-color: lightblue;
+    border: thin solid black;
+    width: 30%;
+
+}
+
+.DeleteSchedules{
+
+    background-color: lightpink;
+    border: thin solid black;
+    width: 30%;
+}
+
+.UpdateSchedules{
+
+    background-color: lightgreen;
+    border: thin solid black;
+    width: 30%;
+}
