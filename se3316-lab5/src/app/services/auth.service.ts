@@ -35,4 +35,15 @@ export class AuthService {
       })
     )
   }
+  async googleSignin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const credential = await this.afAuth.signInWithPopup(provider);
+    return this.router.navigateByUrl('/members');
+
+
+  }
+  async signOut() {
+    await this.afAuth.signOut();
+    return this.router.navigate(['/']);
+  }
 }
