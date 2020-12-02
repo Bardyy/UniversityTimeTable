@@ -1,1 +1,18 @@
-<p>loginpage works!</p>
+<div class="signIn">
+    <h2 class="messageCenter">
+        Sign up for an account here:
+    </h2>
+    <div class="form"><input type="email" #emailSignup placeholder="Enter your email" />
+        <input type="password" #passwordSignup placeholder="Enter your password" />
+        <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button></div>
+
+</div>
+<br>
+<div class="signUp">
+    <h2 class="messageCenter">
+        Log in to your account here:
+    </h2>
+    <div class="form"><input type="email" #emailSignin placeholder="Enter your registered email" />
+        <input type="password" #passwordSignin placeholder="Enter your password" />
+        <button (click)="onSignin(emailSignin.value,passwordSignin.value)">Log in</button></div>
+</div>

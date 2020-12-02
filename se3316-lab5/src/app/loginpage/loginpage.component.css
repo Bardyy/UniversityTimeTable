@@ -1,0 +1,40 @@
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+
+
+
+.signUp{
+
+    background-color: lightblue;
+    border: thin solid black;
+    width: 100%;
+    font-family: Arial;
+    font-style: italic;
+
+}
+
+.signIn{
+    background-color: lightgreen;
+    border: thin solid black;
+    width: 100%;
+    font-family: Arial;
+    font-style: italic;
+
+}
+
+.messageCenter{
+
+    text-align: center;
+    align-self: center;
+}
