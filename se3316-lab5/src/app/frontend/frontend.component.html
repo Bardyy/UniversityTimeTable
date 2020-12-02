@@ -1,1 +1,83 @@
-<p>frontend works!</p>
+<div class="subjectSearch">
+    <p>Please enter the subject you are looking for</p>
+    <input placeholder="Enter the subject name" type="text" [(ngModel)]="subject_entry">
+</div>
+
+<br>
+<div class="courseSearch">
+    <p>Please enter the course component for the selected subject</p>
+    <input type="text" placeholder="Input the course code" [(ngModel)]="component_entry">
+</div>
+
+<br>
+
+<div>
+    <select class="courseComponent_">
+        <option value=ANY>Select a component</option>
+        <option value=LEC>LECTURE</option>
+        <option value=TUT>TUTORIAL</option>
+        <option value=LAB>LABORATORY</option>
+    </select>
+
+    <br>
+
+    <button (click)="subjectSearch()"> Search </button>
+
+
+    <div>
+        <ul>
+            <li *ngFor="let courseInfo of array_1" class="ResultsList">
+
+                <div class="Results">
+                    <p>
+                        ClassNumber: {{courseInfo.course_info[0].class_nbr}}
+                    </p>
+
+                    <p>
+                        StartTime: {{courseInfo.course_info[0].start_time}}
+                    </p>
+
+                    <p>
+                        Description: {{courseInfo.course_info[0].descrlong}}
+                    </p>
+
+                    <p>
+                        EndTime: {{courseInfo.course_info[0].end_time}}
+                    </p>
+
+                    <p>
+                        Campus: {{courseInfo.course_info[0].campus}}
+                    </p>
+
+                    <p>
+                        FacilityID: {{courseInfo.course_info[0].facility_ID}}
+                    </p>
+
+                    <p>
+                        Days: {{courseInfo.course_info[0].days}}
+                    </p>
+
+                    <p>
+                        Instructors: {{courseInfo.course_info[0].instructors}}
+                    </p>
+
+                    <p>
+                        classSection: {{courseInfo.course_info[0].class_section}}
+                    </p>
+
+                    <p>
+                        Component: {{courseInfo.course_info[0].ssr_component}}
+                    </p>
+
+                    <p>
+                        EnrollmentStatus: {{courseInfo.course_info[0].enrl_stat}}
+                    </p>
+
+                    <p>
+                        Info: {{courseInfo.course_info[0].descr}}
+                    </p>
+                </div>
+
+            </li>
+        </ul>
+    </div>
