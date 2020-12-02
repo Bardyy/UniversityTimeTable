@@ -11,7 +11,14 @@ form
     text-align: left;
 }
 
+.aboutUs{
 
+    background-color: plum;
+    border: thin solid black;
+    width: 100%;
+    font-family: Arial;
+    font-style: italic;
+}
 
 
 .signUp{

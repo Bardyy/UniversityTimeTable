@@ -81,3 +81,6 @@
             </li>
         </ul>
     </div>
+
+    <button (click)="logout()">Logout</button>
+    <app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>
