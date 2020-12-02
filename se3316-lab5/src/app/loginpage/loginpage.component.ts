@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginpageComponent implements OnInit {
   isSignedIn = false;
 
-  constructor(public firebaseService: FirebaseService, private router: Router) { }
+  constructor(public firebaseService: FirebaseService, private router: Router, public auth: AuthService) { }
 
   ngOnInit(): void {
     if (localStorage.getItem('user') !== null)

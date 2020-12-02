@@ -18,6 +18,7 @@ export class FirebaseService {
         localStorage.setItem('user', JSON.stringify(res.user))
       }).catch((err) => {
         alert(err.message)
+        location.reload()
       })
   }
 
@@ -30,6 +31,7 @@ export class FirebaseService {
         localStorage.setItem('user', JSON.stringify(res.user))
       }).catch((err) => {
         alert(err.message)
+        location.reload()
       })
   }
 
