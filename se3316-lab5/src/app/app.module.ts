@@ -9,12 +9,14 @@ import { BackendComponent } from './backend/backend.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginpageComponent } from './loginpage/loginpage.component'
 import { FirebaseService } from './services/firebase.service';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 @NgModule({
   declarations: [
     AppComponent,
     FrontendComponent,
     BackendComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

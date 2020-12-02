@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ScheduleUpdater } from './backend.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-backend',
@@ -17,7 +18,7 @@ export class BackendComponent implements OnInit {
   scheduleList: any
   readonly ROOT_URL = 'http://localhost:3000'
 
-  constructor(private http: HttpClient, public scheduleUpdater: ScheduleUpdater) { }
+  constructor(private http: HttpClient, public scheduleUpdater: ScheduleUpdater, private router: Router) { }
 
   ngOnInit(): void {
     this.scheduleUpdater.getSchedules()
@@ -56,6 +57,10 @@ export class BackendComponent implements OnInit {
       })
     alert('The schedule has been updated')
     location.reload();
+  }
+
+  backToSearch() {
+    this.router.navigateByUrl('members')
   }
 
 }

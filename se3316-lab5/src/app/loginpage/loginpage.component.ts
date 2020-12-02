@@ -35,5 +35,8 @@ export class LoginpageComponent implements OnInit {
 
   }
 
+  privacyPolicy() {
+    window.open("http://localhost:4200/privacyPolicy", "_blank")
+  }
 
 }

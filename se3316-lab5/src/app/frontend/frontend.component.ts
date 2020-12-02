@@ -37,6 +37,10 @@ export class FrontendComponent implements OnInit {
     if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry) || (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.component_entry))) { alert('ERROR: You have entered illegal characters.') }
   }
 
+  schedulesSearch() {
+    this.router.navigateByUrl('schedules')
+  }
+
   logout() {
     this.firebaseService.logOut()
     this.isLogout.emit()
@@ -47,4 +51,6 @@ export class FrontendComponent implements OnInit {
     this.isSignedIn = false
 
   }
+
+
 }

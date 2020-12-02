@@ -55,3 +55,11 @@ form
     font-style: italic;
 
 }
+
+.pol{
+    background-color: lightcoral;
+    border: thin solid black;
+    width: 100%;
+    font-family: Arial;
+    font-style: italic;
+}
