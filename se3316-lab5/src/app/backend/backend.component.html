@@ -37,3 +37,13 @@
 </div>
 
 <button (click)="backToSearch()">Back to Home page</button>
+
+<button (click)="getAllTheSchedules()">click</button>
+<div *ngFor="let item of get_schedules">
+    <div>
+        {{item._id}}
+    </div>
+    <div>
+        {{item.scheduleName}}
+    </div>
+</div>

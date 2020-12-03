@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { ScheduleUpdater } from '../backend/backend.service'
 import TimeTableData from '../TimeTableData.json';
 
 @Component({
@@ -13,15 +14,20 @@ export class FrontendComponent implements OnInit {
   courseInfo: any = TimeTableData;
   subject_entry = ''
   component_entry = ''
+  super_entry = ""
   array_1 = [] as any[];
-
+  courses: any = []
   isSignedIn = false;
   empty = "";
 
 
-  constructor(public firebaseService: FirebaseService, private router: Router) { }
+  constructor(public firebaseService: FirebaseService, private router: Router, public backendService: ScheduleUpdater) { }
 
   ngOnInit(): void {
+    this.backendService.getsoftSearchUpdaterListener()
+      .subscribe(data => {
+        this.courses = data
+      })
   }
   subjectSearchSolo() {
     for (let i = 0; i < this.courseInfo.length; i++) {
@@ -36,6 +42,15 @@ export class FrontendComponent implements OnInit {
     }
     if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry)) { alert('ERROR: You have entered illegal characters.') }
   }
+
+
+  softSearch() {
+    this.backendService.softSearch(this.super_entry)
+    console.log('1')
+
+  }
+
+
 
   subjectSearch() {
     for (let i = 0; i < this.courseInfo.length; i++) {

@@ -16,16 +16,23 @@ export class BackendComponent implements OnInit {
   validator = false;
   scheduleName: string
   scheduleList: any
+
   readonly ROOT_URL = 'http://localhost:3000'
 
   constructor(private http: HttpClient, public scheduleUpdater: ScheduleUpdater, private router: Router) { }
 
   ngOnInit(): void {
-    this.scheduleUpdater.getSchedules()
+    //this.scheduleUpdater.getSchedules()
     this.scheduleSubscriber = this.scheduleUpdater.getScheduleUpdaterListener()
       .subscribe(data => {
         this.get_schedules = data
       })
+
+
+  }
+
+  getAllTheSchedules() {
+    this.scheduleUpdater.getAllSchedules()
   }
 
   createSchedule() {

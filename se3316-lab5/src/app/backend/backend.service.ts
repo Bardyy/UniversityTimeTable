@@ -5,8 +5,9 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: "root" })
 export class ScheduleUpdater {
     private schedules: any = [];
-
+    private softSearchSubject = new Subject();
     private schedulesSubject = new Subject();
+    private courses: any = [];
     readonly ROOT_URL = 'http://localhost:3000'
 
     constructor(private http: HttpClient) { }
@@ -19,6 +20,17 @@ export class ScheduleUpdater {
     getSchedules() {
         this.http
             .get(this.ROOT_URL + '/api/courses/schedule/list/amount')
+            .subscribe(schedules => {
+                console.log(schedules)
+                this.schedules = schedules;
+                this.schedulesSubject.next([...this.schedules]);
+            });
+    }
+
+
+    getAllSchedules() {
+        this.http
+            .get(this.ROOT_URL + '/api/courses/schedule/all/dog')
             .subscribe(schedules => {
                 console.log(schedules)
                 this.schedules = schedules;
@@ -59,6 +71,20 @@ export class ScheduleUpdater {
 
     }
 
+    softSearch(softSearch) {
+        this.http
+            .post(this.ROOT_URL + `/api/courses/search/keys/soft`, { softSearch })
+            .subscribe(courses => {
+                console.log('4')
+                this.courses = courses
+                this.softSearchSubject.next([...this.courses])
+            });
 
+    }
+    getsoftSearchUpdaterListener() {
+        console.log('2')
+        return this.softSearchSubject.asObservable();
+
+    }
 
 }

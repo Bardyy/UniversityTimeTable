@@ -9,6 +9,12 @@
     <p>Please enter the course component for the selected subject</p>
     <input type="text" placeholder="Input the course code" [(ngModel)]="component_entry">
 </div>
+<br>
+
+<input type="text" placeholder="super-search" [(ngModel)]="super_entry">
+<button (click)="softSearch()">
+
+</button>
 
 <br>
 
@@ -85,5 +91,11 @@
         </ul>
     </div>
 
+    <div *ngFor="let item of courses">
+        <div>
+            {{item.className}}
+        </div>
+
+    </div>
 
     <app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>
