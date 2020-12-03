@@ -1,4 +1,7 @@
 <button (click)="logout()">Logout</button>
+<button (click)="schedulesSearch()">Go to Schedules Page</button>
+
+
 <div class="subjectSearch">
     <p>Please enter the subject you are looking for</p>
     <input placeholder="Enter the subject name" type="text" [(ngModel)]="subject_entry">
@@ -11,91 +14,84 @@
 </div>
 <br>
 
+<select class="courseComponent_">
+    <option value=ANY>Select a component</option>
+    <option value=LEC>LECTURE</option>
+    <option value=TUT>TUTORIAL</option>
+    <option value=LAB>LABORATORY</option>
+</select>
+<br>
+<button (click)="subjectSearch()"> Search by subject, course code, and component </button>
+<br>
+<button (click)="subjectSearchSolo()">Search by subject</button>
+<br>
 <input type="text" placeholder="Search by Catalog Number or Class Number keywords" [(ngModel)]="super_entry">
 <button (click)="softSearch()">
     Super Search
 </button>
-
 <br>
-
 <div>
-    <select class="courseComponent_">
-        <option value=ANY>Select a component</option>
-        <option value=LEC>LECTURE</option>
-        <option value=TUT>TUTORIAL</option>
-        <option value=LAB>LABORATORY</option>
-    </select>
+    <ul>
+        <li *ngFor="let courseInfo of array_1" class="ResultsList">
 
-    <br>
+            <div class="Results">
+                <p>
+                    ClassNumber: {{courseInfo.course_info[0].class_nbr}}
+                </p>
 
-    <button (click)="subjectSearch()"> Search by subject and component </button>
-    <button (click)="subjectSearchSolo()">Search by subject</button>
-    <button (click)="schedulesSearch()">Schedules Page</button>
+                <p>
+                    StartTime: {{courseInfo.course_info[0].start_time}}
+                </p>
 
+                <p>
+                    Description: {{courseInfo.course_info[0].descrlong}}
+                </p>
 
-    <div>
-        <ul>
-            <li *ngFor="let courseInfo of array_1" class="ResultsList">
+                <p>
+                    EndTime: {{courseInfo.course_info[0].end_time}}
+                </p>
 
-                <div class="Results">
-                    <p>
-                        ClassNumber: {{courseInfo.course_info[0].class_nbr}}
-                    </p>
+                <p>
+                    Campus: {{courseInfo.course_info[0].campus}}
+                </p>
 
-                    <p>
-                        StartTime: {{courseInfo.course_info[0].start_time}}
-                    </p>
+                <p>
+                    FacilityID: {{courseInfo.course_info[0].facility_ID}}
+                </p>
 
-                    <p>
-                        Description: {{courseInfo.course_info[0].descrlong}}
-                    </p>
+                <p>
+                    Days: {{courseInfo.course_info[0].days}}
+                </p>
 
-                    <p>
-                        EndTime: {{courseInfo.course_info[0].end_time}}
-                    </p>
+                <p>
+                    Instructors: {{courseInfo.course_info[0].instructors}}
+                </p>
 
-                    <p>
-                        Campus: {{courseInfo.course_info[0].campus}}
-                    </p>
+                <p>
+                    classSection: {{courseInfo.course_info[0].class_section}}
+                </p>
 
-                    <p>
-                        FacilityID: {{courseInfo.course_info[0].facility_ID}}
-                    </p>
+                <p>
+                    Component: {{courseInfo.course_info[0].ssr_component}}
+                </p>
 
-                    <p>
-                        Days: {{courseInfo.course_info[0].days}}
-                    </p>
+                <p>
+                    EnrollmentStatus: {{courseInfo.course_info[0].enrl_stat}}
+                </p>
 
-                    <p>
-                        Instructors: {{courseInfo.course_info[0].instructors}}
-                    </p>
+                <p>
+                    Info: {{courseInfo.course_info[0].descr}}
+                </p>
+            </div>
 
-                    <p>
-                        classSection: {{courseInfo.course_info[0].class_section}}
-                    </p>
-
-                    <p>
-                        Component: {{courseInfo.course_info[0].ssr_component}}
-                    </p>
-
-                    <p>
-                        EnrollmentStatus: {{courseInfo.course_info[0].enrl_stat}}
-                    </p>
-
-                    <p>
-                        Info: {{courseInfo.course_info[0].descr}}
-                    </p>
-                </div>
-
-            </li>
-        </ul>
+        </li>
+    </ul>
+</div>
+<div *ngFor="let item of courses">
+    <div class="superResults">
+        {{item.className}}
     </div>
 
-    <div *ngFor="let item of courses">
-        <div>
-            {{item.className}}
-        </div>
+</div>
 
-    </div>
-
-    <app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>
+<app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>

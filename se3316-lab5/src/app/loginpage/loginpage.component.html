@@ -136,9 +136,24 @@
         </ul>
     </div>
     <div *ngFor="let item of courses">
-        <div>
+        <div class="superResults">
             {{item.className}}
         </div>
 
     </div>
-</div>
+    <div>
+        <p>View the existing course lists:</p>
+        <button (click)="getAllTheSchedules()">click</button>
+        <div *ngFor="let item of get_schedules">
+            <div class="superResults">
+                <pre>{{item.scheduleName}}</pre>
+                <pre>{{item.scheduleList[0].subject}}</pre>
+                <pre>{{item.scheduleList[0].catalog_nbr}}</pre>
+            </div>
+
+
+
+
+
+        </div>
+    </div>

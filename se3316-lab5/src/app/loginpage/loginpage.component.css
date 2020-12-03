@@ -88,3 +88,8 @@ form
 .loginSearch{
     background-color: navajowhite;
 }
+
+.superResults{
+    background-color: rgb(172, 224, 133);
+    border: thick solid black;
+}

@@ -6,7 +6,7 @@
     </div>
 
 </div>
-<br>
+
 <div class="CreateSchedule">
     <p>Create A New Schedule:</p>
     <form (submit)="createSchedule()">
@@ -16,7 +16,7 @@
     </form>
 </div>
 
-<br>
+
 
 <div class="UpdateSchedules">
     <p>Add a course and subject to an existing schedule</p>
@@ -29,7 +29,7 @@
     <button (click)="updateSchedule()">Update Schedule</button>
 </div>
 
-<br>
+
 
 <div class="DeleteSchedules">
     <p>Delete All Schedules:</p>
@@ -41,9 +41,9 @@
 <button (click)="getAllTheSchedules()">click</button>
 <div *ngFor="let item of get_schedules">
     <div>
-        {{item._id}}
+        <pre>{{item.scheduleList[0].catalog_nbr}}</pre>
     </div>
     <div>
-        {{item.scheduleName}}
+        <pre>{{item.scheduleName}}</pre>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { ScheduleUpdater } from '../backend/backend.service'
 import TimeTableData from '../TimeTableData.json';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
@@ -11,12 +12,14 @@ import TimeTableData from '../TimeTableData.json';
 })
 export class LoginpageComponent implements OnInit {
   isSignedIn = false;
+  private scheduleSubscriber: Subscription;
   courseInfo: any = TimeTableData;
   subject_entry = ''
   component_entry = ''
   super_entry = ""
   array_1 = [] as any[];
   courses: any = []
+  get_schedules: any;
 
   constructor(public firebaseService: FirebaseService, private router: Router, public auth: AuthService, public backendService: ScheduleUpdater) { }
 
@@ -29,6 +32,16 @@ export class LoginpageComponent implements OnInit {
       .subscribe(data => {
         this.courses = data
       })
+
+    this.scheduleSubscriber = this.backendService.getScheduleUpdaterListener()
+      .subscribe(data => {
+        this.get_schedules = data
+      })
+
+  }
+
+  getAllTheSchedules() {
+    this.backendService.getAllSchedules()
   }
 
   async onSignup(email: string, password: string) {
