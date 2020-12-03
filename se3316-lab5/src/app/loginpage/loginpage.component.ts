@@ -2,6 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { ScheduleUpdater } from '../backend/backend.service'
+import TimeTableData from '../TimeTableData.json';
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
@@ -9,14 +11,24 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginpageComponent implements OnInit {
   isSignedIn = false;
+  courseInfo: any = TimeTableData;
+  subject_entry = ''
+  component_entry = ''
+  super_entry = ""
+  array_1 = [] as any[];
+  courses: any = []
 
-  constructor(public firebaseService: FirebaseService, private router: Router, public auth: AuthService) { }
+  constructor(public firebaseService: FirebaseService, private router: Router, public auth: AuthService, public backendService: ScheduleUpdater) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('user') !== null)
+    if (localStorage.getItem('user') !== null) {
       this.isSignedIn = true
-    else
-      this.isSignedIn = false
+    }
+    else { this.isSignedIn = false }
+    this.backendService.getsoftSearchUpdaterListener()
+      .subscribe(data => {
+        this.courses = data
+      })
   }
 
   async onSignup(email: string, password: string) {
@@ -34,6 +46,46 @@ export class LoginpageComponent implements OnInit {
     }
 
   }
+
+
+  subjectSearchSolo() {
+    for (let i = 0; i < this.courseInfo.length; i++) {
+      if ((this.courseInfo[i].subject === this.subject_entry.toUpperCase())) {
+
+        this.array_1.push({
+          "course_info": this.courseInfo[i].course_info
+        });
+        console.log(this.array_1)
+      }
+
+    }
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry)) { alert('ERROR: You have entered illegal characters.') }
+  }
+
+
+  softSearch() {
+    this.backendService.softSearch(this.super_entry)
+    console.log('1')
+
+  }
+
+
+
+  subjectSearch() {
+    for (let i = 0; i < this.courseInfo.length; i++) {
+      if ((this.courseInfo[i].subject === this.subject_entry.toUpperCase() && this.courseInfo[i].catalog_nbr === this.component_entry.toUpperCase())) {
+
+        this.array_1.push({
+          "course_info": this.courseInfo[i].course_info
+        });
+        console.log(this.array_1)
+      }
+
+    }
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry) || (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.component_entry))) { alert('ERROR: You have entered illegal characters.') }
+  }
+
+
 
   privacyPolicy() {
     window.open("http://localhost:4200/privacyPolicy", "_blank")

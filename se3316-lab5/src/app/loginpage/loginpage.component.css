@@ -63,3 +63,28 @@ form
     font-family: Arial;
     font-style: italic;
 }
+
+.Results{
+    background-color: navajowhite;
+    border: thick solid black;
+}
+
+.ResultsList{
+    list-style-type: none;
+}
+
+.subjectSearch{
+    background-color: lightseagreen;
+    border: thin solid black;
+    width: 30%;
+}
+
+.courseSearch{
+    background-color: lightsalmon;
+    border: thin solid black;
+    width: 30%;
+}
+
+.loginSearch{
+    background-color: navajowhite;
+}
