@@ -1,3 +1,4 @@
+<button (click)="logout()">Logout</button>
 <div class="subjectSearch">
     <p>Please enter the subject you are looking for</p>
     <input placeholder="Enter the subject name" type="text" [(ngModel)]="subject_entry">
@@ -21,7 +22,8 @@
 
     <br>
 
-    <button (click)="subjectSearch()"> Search </button>
+    <button (click)="subjectSearch()"> Search by subject and component </button>
+    <button (click)="subjectSearchSolo()">Search by subject</button>
     <button (click)="schedulesSearch()">Schedules Page</button>
 
 
@@ -83,5 +85,5 @@
         </ul>
     </div>
 
-    <button (click)="logout()">Logout</button>
+
     <app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>
