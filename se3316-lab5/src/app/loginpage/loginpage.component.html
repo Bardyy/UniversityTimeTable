@@ -155,14 +155,16 @@
                     </mat-panel-title>
                     <pre>
                     <mat-panel-description>
-                        Created By: {{item.scheduleList[0].campus}}
-                        Last Date Modified: {{item.scheduleList[0].descr}}
+                        
+                        Created By: {{item.scheduleList[0].campus}} ; Last Date Modified: {{item.scheduleList[0].descr}} ; Number of Courses: {{item.scheduleList[0].class_section}}
+                        
                     </mat-panel-description>
                 </pre>
                 </mat-expansion-panel-header>
                 <div>
-                    <pre> Listed Subjects:{{item.scheduleList[0].subject}} </pre>
+                    <pre> Listed Subjects: {{item.scheduleList[0].subject}} </pre>
                     <pre>Course Number: {{item.scheduleList[0].catalog_nbr}}</pre>
+                    <pre>Course List Description: {{item.scheduleList[0].enrl_stat}}</pre>
 
                 </div>
             </mat-expansion-panel>
