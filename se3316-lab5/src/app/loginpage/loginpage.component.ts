@@ -5,6 +5,7 @@ import { AuthService } from '../services/auth.service';
 import { ScheduleUpdater } from '../backend/backend.service'
 import TimeTableData from '../TimeTableData.json';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
@@ -20,6 +21,7 @@ export class LoginpageComponent implements OnInit {
   array_1 = [] as any[];
   courses: any = []
   get_schedules: any;
+
 
   constructor(public firebaseService: FirebaseService, private router: Router, public auth: AuthService, public backendService: ScheduleUpdater) { }
 

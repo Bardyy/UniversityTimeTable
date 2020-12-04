@@ -144,16 +144,34 @@
     <div>
         <p>View the existing course lists:</p>
         <button (click)="getAllTheSchedules()">click</button>
-        <div *ngFor="let item of get_schedules">
-            <div class="superResults">
-                <pre>{{item.scheduleName}}</pre>
-                <pre>{{item.scheduleList[0].subject}}</pre>
-                <pre>{{item.scheduleList[0].catalog_nbr}}</pre>
-            </div>
+        <div *ngFor="let item of get_schedules" class="newdiv12">
 
 
 
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Schedule Name: {{item.scheduleName}}
+                    </mat-panel-title>
+                    <pre>
+                    <mat-panel-description>
+                        Created By: {{item.scheduleList[0].campus}}
+                        Last Date Modified: {{item.scheduleList[0].descr}}
+                    </mat-panel-description>
+                </pre>
+                </mat-expansion-panel-header>
+                <div>
+                    <pre> Listed Subjects:{{item.scheduleList[0].subject}} </pre>
+                    <pre>Course Number: {{item.scheduleList[0].catalog_nbr}}</pre>
+
+                </div>
+            </mat-expansion-panel>
 
 
         </div>
+
+
+
+
+
     </div>

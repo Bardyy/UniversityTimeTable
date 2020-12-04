@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginpageComponent } from './loginpage/loginpage.component'
 import { FirebaseService } from './services/firebase.service';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -31,7 +35,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
       storageBucket: "testing12345-d4a3e.appspot.com",
       messagingSenderId: "811787705800",
       appId: "1:811787705800:web:df4c41452211248845b4fd"
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]
