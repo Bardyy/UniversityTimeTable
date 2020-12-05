@@ -2,7 +2,9 @@
     <h2 class="messageCenter">
         Sign up for an account here:
     </h2>
-    <div class="form"><input type="email" #emailSignup placeholder="Enter your email" />
+    <div class="form">
+        <input type="text" placeholder="Enter your username" [(ngModel)]="userName">
+        <input type="email" #emailSignup placeholder="Enter your email" />
         <input type="password" #passwordSignup placeholder="Enter your password" />
         <button (click)="onSignup(emailSignup.value,passwordSignup.value)">Sign up</button></div>
 
@@ -16,7 +18,15 @@
         <input type="password" #passwordSignin placeholder="Enter your password" />
         <button (click)="onSignin(emailSignin.value,passwordSignin.value)">Log in</button></div>
 </div>
-
+<br>
+<div class="signUp">
+    <h2 class="messageCenter">
+        Log in to your admin account here:
+    </h2>
+    <div class="form"><input type="email" #emilSignin placeholder="Enter your registered email" />
+        <input type="password" #paswordSignin placeholder="Enter your password" />
+        <button (click)="onAdminSignIn(emilSignin.value,paswordSignin.value)">Log in</button></div>
+</div>
 <br>
 
 <div class="google">
@@ -44,8 +54,9 @@
 <br>
 <div class="pol">
     <h3 class="messageCenter">
-        UWO Schedule Manager Privacy Policy:
+        UWO Schedule Manager Policies and Regulations:
         <button (click)="privacyPolicy()">Privacy Policy Information</button>
+        <button (click)="aupPolicy()">AUP Information</button>
     </h3>
 </div>
 <br>
@@ -73,7 +84,7 @@
     <br>
     <button (click)="subjectSearchSolo()">Search by subject</button>
     <br>
-    <input type="text" placeholder="Search by Catalog Number or Class Number keywords" [(ngModel)]="super_entry">
+    <input type="text" placeholder="Search by keywords" [(ngModel)]="super_entry">
     <button (click)="softSearch()">
         Super Search
     </button>
@@ -142,8 +153,8 @@
 
     </div>
     <div>
-        <p>View the existing course lists:</p>
-        <button (click)="getAllTheSchedules()">click</button>
+        <p class="courseMessage">View the existing course lists:</p>
+        <button (click)="getAllTheSchedules()">View Course Lists</button>
         <div *ngFor="let item of get_schedules" class="newdiv12">
 
 

@@ -65,7 +65,7 @@ form
 }
 
 .Results{
-    background-color: navajowhite;
+    background-color: rgb(45, 225, 213);
     border: thick solid black;
 }
 
@@ -110,4 +110,10 @@ form
     height: fit-content;
     font-weight: normal;
     font-size: 13px;
+}
+
+.courseMessage{
+    font-family: Arial;
+    font-style: italic;
+    font-style: bold;
 }

@@ -17,6 +17,7 @@ export class LoginpageComponent implements OnInit {
   courseInfo: any = TimeTableData;
   subject_entry = ''
   component_entry = ''
+  userName = ""
   super_entry = ""
   array_1 = [] as any[];
   courses: any = []
@@ -51,6 +52,8 @@ export class LoginpageComponent implements OnInit {
     if (this.firebaseService.isLoggedIn)
       this.isSignedIn = true
     this.router.navigateByUrl('')
+    alert("Your account has been created " + this.userName)
+    location.reload()
   }
 
   async onSignin(email: string, password: string) {
@@ -62,6 +65,14 @@ export class LoginpageComponent implements OnInit {
 
   }
 
+  async onAdminSignIn(email: string, password: string) {
+    await this.firebaseService.signAdminIn(email, password)
+    if (this.firebaseService.isLoggedIn && this.firebaseService.uid == "oCyGVbwWRxdy0MomFlcznULQ9V93") {
+      this.isSignedIn = true
+      this.router.navigateByUrl('/members')
+    }
+
+  }
 
   subjectSearchSolo() {
     for (let i = 0; i < this.courseInfo.length; i++) {
@@ -104,6 +115,10 @@ export class LoginpageComponent implements OnInit {
 
   privacyPolicy() {
     window.open("http://localhost:4200/privacyPolicy", "_blank")
+  }
+
+  aupPolicy() {
+    window.open("http://localhost:4200/AUP", "_blank")
   }
 
 }

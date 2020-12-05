@@ -11,7 +11,8 @@ import { LoginpageComponent } from './loginpage/loginpage.component'
 import { FirebaseService } from './services/firebase.service';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module'
+import { MaterialModule } from './material/material.module';
+import { AUPComponent } from './aup/aup.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MaterialModule } from './material/material.module'
     FrontendComponent,
     BackendComponent,
     LoginpageComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    AUPComponent
   ],
   imports: [
     BrowserModule,
