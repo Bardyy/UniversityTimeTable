@@ -69,7 +69,7 @@ export class LoginpageComponent implements OnInit {
     await this.firebaseService.signAdminIn(email, password)
     if (this.firebaseService.isLoggedIn && this.firebaseService.uid == "oCyGVbwWRxdy0MomFlcznULQ9V93") {
       this.isSignedIn = true
-      this.router.navigateByUrl('/members')
+      this.router.navigateByUrl('/admin')
     }
 
   }
@@ -133,6 +133,7 @@ export class LoginpageComponent implements OnInit {
   dmcaPolicy() {
     window.open("http://localhost:4200/DMCA", "_blank")
   }
+
 
 
 

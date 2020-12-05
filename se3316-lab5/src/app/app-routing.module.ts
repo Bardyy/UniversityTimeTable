@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { AUPComponent } from './aup/aup.component';
 import { BackendComponent } from './backend/backend.component';
 import { DMCAComponent } from './dmca/dmca.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
     { path: 'members', component: FrontendComponent },
     { path: 'privacyPolicy', component: PrivacyPolicyComponent },
     { path: 'AUP', component: AUPComponent },
-    { path: 'DMCA', component: DMCAComponent }
+    { path: 'DMCA', component: DMCAComponent },
+    { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({

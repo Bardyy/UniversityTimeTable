@@ -1,5 +1,6 @@
 <button (click)="logout()">Logout</button>
 <button (click)="schedulesSearch()">Go to Schedules Page</button>
+<button (click)="createCourseList()">Create A Course List</button>
 
 
 <div class="subjectSearch">
@@ -94,4 +95,41 @@
 
 </div>
 
-<app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>
+
+
+<div>
+    <p class="courseMessage">View the existing course lists:</p>
+    <button (click)="getAllTheSchedules()">View Course Lists</button>
+    <div *ngFor="let item of get_schedules" class="newdiv12">
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Schedule Name: {{item.scheduleName}}
+                </mat-panel-title>
+                <pre>
+                <mat-panel-description>
+                    
+                    Created By: {{item.scheduleList[0].campus}} ; Last Date Modified: {{item.scheduleList[0].descr}} ; Number of Courses: {{item.scheduleList[0].class_section}}
+                    
+                </mat-panel-description>
+            </pre>
+            </mat-expansion-panel-header>
+            <div>
+                <pre> Listed Subjects: {{item.scheduleList[0].subject}} </pre>
+                <pre>Course Number: {{item.scheduleList[0].catalog_nbr}}</pre>
+                <pre>Course List Description: {{item.scheduleList[0].enrl_stat}}</pre>
+
+            </div>
+        </mat-expansion-panel>
+
+
+    </div>
+
+
+
+
+
+
+
+    <app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>

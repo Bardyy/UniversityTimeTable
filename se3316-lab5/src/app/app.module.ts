@@ -13,7 +13,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AUPComponent } from './aup/aup.component';
-import { DMCAComponent } from './dmca/dmca.component'
+import { DMCAComponent } from './dmca/dmca.component';
+import { AdminComponent } from './admin/admin.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DMCAComponent } from './dmca/dmca.component'
     LoginpageComponent,
     PrivacyPolicyComponent,
     AUPComponent,
-    DMCAComponent
+    DMCAComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

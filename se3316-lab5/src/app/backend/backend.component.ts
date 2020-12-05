@@ -16,6 +16,7 @@ export class BackendComponent implements OnInit {
   validator = false;
   scheduleName: string
   scheduleList: any
+  allComplete: boolean
 
   readonly ROOT_URL = 'http://localhost:3000'
 
@@ -70,5 +71,10 @@ export class BackendComponent implements OnInit {
   backToSearch() {
     this.router.navigateByUrl('members')
   }
+
+  setAll(completed: boolean) {
+    this.allComplete = completed;
+  }
+
 
 }

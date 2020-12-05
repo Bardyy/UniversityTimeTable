@@ -3,6 +3,7 @@ import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 import { ScheduleUpdater } from '../backend/backend.service'
 import TimeTableData from '../TimeTableData.json';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-frontend',
@@ -19,6 +20,8 @@ export class FrontendComponent implements OnInit {
   courses: any = []
   isSignedIn = false;
   empty = "";
+  get_schedules: any;
+  private scheduleSubscriber: Subscription;
 
 
   constructor(public firebaseService: FirebaseService, private router: Router, public backendService: ScheduleUpdater) { }
@@ -28,7 +31,15 @@ export class FrontendComponent implements OnInit {
       .subscribe(data => {
         this.courses = data
       })
+
+
+    this.scheduleSubscriber = this.backendService.getScheduleUpdaterListener()
+      .subscribe(data => {
+        this.get_schedules = data
+      })
   }
+
+
   subjectSearchSolo() {
     for (let i = 0; i < this.courseInfo.length; i++) {
       if ((this.courseInfo[i].subject === this.subject_entry.toUpperCase())) {
@@ -38,6 +49,8 @@ export class FrontendComponent implements OnInit {
         });
         console.log(this.array_1)
       }
+
+
 
     }
     if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry)) {
@@ -90,5 +103,12 @@ export class FrontendComponent implements OnInit {
 
   }
 
+  createCourseList() {
+    window.open("http://localhost:3000/schedules.html", "_blank")
+  }
+
+  getAllTheSchedules() {
+    this.backendService.getAllSchedules()
+  }
 
 }

@@ -1,0 +1,30 @@
+<h2>UWO Schedules Manager Administrator Home page</h2>
+<div class="newdiv12">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                DMCA Takedown Procedure Tools Guide
+            </mat-panel-title>
+            <pre>
+        <mat-panel-description>
+            
+           This list describes the tools you can use for a DMCA Takedown Process
+            
+        </mat-panel-description>
+    </pre>
+        </mat-expansion-panel-header>
+        <div>
+            <pre> Hiding Content: You will be able to hide content that has been striked with AUP strikes.  </pre>
+            <pre> Restoring Content: You will be able to re-display hidden content that was claimed as copyright</pre>
+            <pre>
+            Documenting notices: As Administrator, you can use the "notices" tool to manage all disputes and notices received or claimed, and all the relevant information regarding them.
+        </pre>
+
+        </div>
+    </mat-expansion-panel>
+
+</div>
+
+<button (click)="logout()">Logout</button>
+
+<app-loginpage *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-loginpage>

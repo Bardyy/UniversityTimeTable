@@ -24,7 +24,7 @@ export class FirebaseService {
   }
 
   async signAdminIn(email: string, password: string) {
-    await this.firebaseAuth.signInWithCustomToken(this.uid)
+    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
         this.isLoggedIn = true;
         this.uid = "oCyGVbwWRxdy0MomFlcznULQ9V93"
