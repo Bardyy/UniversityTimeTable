@@ -85,14 +85,20 @@ export class LoginpageComponent implements OnInit {
       }
 
     }
-    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry)) { alert('ERROR: You have entered illegal characters.') }
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry)) {
+      alert('ERROR: You have entered illegal characters.')
+      location.reload()
+    }
   }
 
 
   softSearch() {
     this.backendService.softSearch(this.super_entry)
     console.log('1')
-
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.super_entry)) {
+      alert('ERROR: You have entered illegal characters.')
+      location.reload()
+    }
   }
 
 
@@ -108,7 +114,10 @@ export class LoginpageComponent implements OnInit {
       }
 
     }
-    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry) || (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.component_entry))) { alert('ERROR: You have entered illegal characters.') }
+    if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.subject_entry) || (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.component_entry))) {
+      alert('ERROR: You have entered illegal characters.')
+      location.reload()
+    }
   }
 
 

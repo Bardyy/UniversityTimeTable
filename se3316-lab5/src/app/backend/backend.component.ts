@@ -39,6 +39,7 @@ export class BackendComponent implements OnInit {
     if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(this.scheduleInput)) {
       this.validator = false;
       alert('ERROR: You have entered illegal characters.')
+      location.reload()
 
     } else {
       this.validator = true;
