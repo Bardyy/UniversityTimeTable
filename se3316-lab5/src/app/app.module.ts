@@ -12,7 +12,8 @@ import { FirebaseService } from './services/firebase.service';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { AUPComponent } from './aup/aup.component'
+import { AUPComponent } from './aup/aup.component';
+import { DMCAComponent } from './dmca/dmca.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AUPComponent } from './aup/aup.component'
     BackendComponent,
     LoginpageComponent,
     PrivacyPolicyComponent,
-    AUPComponent
+    AUPComponent,
+    DMCAComponent
   ],
   imports: [
     BrowserModule,

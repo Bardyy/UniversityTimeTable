@@ -121,4 +121,10 @@ export class LoginpageComponent implements OnInit {
     window.open("http://localhost:4200/AUP", "_blank")
   }
 
+  dmcaPolicy() {
+    window.open("http://localhost:4200/DMCA", "_blank")
+  }
+
+
+
 }

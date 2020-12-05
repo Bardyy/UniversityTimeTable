@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FirebaseService {
 
   isLoggedIn = false;
-  uid = "";
+  uid = "oCyGVbwWRxdy0MomFlcznULQ9V93";
 
   constructor(public firebaseAuth: AngularFireAuth) { }
 
@@ -24,10 +24,10 @@ export class FirebaseService {
   }
 
   async signAdminIn(email: string, password: string) {
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
+    await this.firebaseAuth.signInWithCustomToken(this.uid)
       .then(res => {
         this.isLoggedIn = true;
-        this.uid = "oCyGVbwWRxdy0MomFlcznULQ9V93";
+        this.uid = "oCyGVbwWRxdy0MomFlcznULQ9V93"
         localStorage.setItem('user', JSON.stringify(res.user))
       }).catch((err) => {
         alert(err.message)
@@ -40,7 +40,7 @@ export class FirebaseService {
     await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .then(res => {
         this.isLoggedIn = true;
-        this.uid = "oCyGVbwWRxdy0MomFlcznULQ9V93"
+
         localStorage.setItem('user', JSON.stringify(res.user))
       }).catch((err) => {
         alert(err.message)
